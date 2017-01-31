@@ -1,0 +1,10 @@
+en:
+  request_errors:
+    '1': Wrong version format
+    '2': Unknown packet type
+    '3': Session not found
+    '4': User not found
+    '5': Wrong attempt to login
+    '6': Wrong attempt to logout
+    '7': Unknown action
+
