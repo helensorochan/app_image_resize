@@ -17,5 +17,5 @@ RSpec.configure do |config|
   end
 
   config.use_transactional_fixtures = false
-
+  config.include FactoryGirl::Syntax::Methods
 end

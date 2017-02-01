@@ -8,5 +8,9 @@ class Session
 
   belongs_to :user, class_name: 'User', foreign_key: 'user_id'
 
-  validates :value, :app_version, :device, presence: true
+  validates :value, :app_version, :device, :user, presence: true
+
+  def self.generate_value
+    SecureRandom.hex(32)
+  end
 end

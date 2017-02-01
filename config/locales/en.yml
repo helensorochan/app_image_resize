@@ -7,4 +7,5 @@ en:
     '5': Wrong attempt to login
     '6': Wrong attempt to logout
     '7': Unknown action
-
+    '8': Wrong login
+    '9': Wrong password

@@ -1,13 +1,13 @@
 class Api::V1::Packets::Users < Api::V1::Packets::Base
 
   def login
-    user = User.where(login: @params[:login], password: Digest::SHA1.hexdigest(@params[:password])).first
-    raise Api::RequestError.new(4) if user.blank?
+    user = User.where(login: @params[:login]).first || (raise Api::RequestError.new(8))
+    user = user.authenticate(@params[:password]) || (raise Api::RequestError.new(9))
 
     session = Session.new(user_id: user.id,
                           app_version: @params[:version],
                           device: @params[:device],
-                          value: SecureRandom.hex(32))
+                          value: Session.generate_value)
     if session.save
       renderer.new.render_login(session: session.value)
     else
@@ -16,8 +16,10 @@ class Api::V1::Packets::Users < Api::V1::Packets::Base
   end
 
   def logout
-    @session.destroy
-    raise Api::RequestError.new(6) if @session.persisted?
-    renderer.new.render_logout
+    if @session.destroy
+      renderer.new.render_logout
+    else
+      raise Api::RequestError.new(6)
+    end
   end
 end

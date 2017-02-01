@@ -37,16 +37,16 @@ RSpec.describe Api::RequestProcessor do
     end
 
     context 'when login with correct params' do
-      let(:user){ User.create(login: 'my_login', password: Digest::SHA1.hexdigest('my_password')) }
+      let(:user){ create(:user, login: 'my_login', password: 'my_password') }
 
       let(:params){ {login: user.login,
-                    password: 'my_password',
+                    password: user.password,
                     version: allowed_version,
                     device: '12345',
                     type: 'users',
                     action: 'login'} }
 
-      it 'then request' do
+      it 'then response' do
         result = subject
         session = Session.where(user_id: user.id, app_version: allowed_version, device: '12345').last
         expect(result[:session]).to eq(session.value)
