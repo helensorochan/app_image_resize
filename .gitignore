@@ -1,0 +1,8 @@
+# Ignore all logfiles and tempfiles.
+/log
+/tmp
+/bin
+
+#Config files
+config/mongoid.yml
+config/secrets.yml

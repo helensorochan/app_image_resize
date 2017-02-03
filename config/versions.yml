@@ -1,0 +1,6 @@
+development:
+  allowed_versions:
+    - '1'
+test:
+  allowed_versions:
+    - '1'
