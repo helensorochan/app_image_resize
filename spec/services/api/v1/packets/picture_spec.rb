@@ -158,8 +158,7 @@ RSpec.describe Api::V1::Packets::Pictures do
                           width: '500',
                           height: '500',
                           content_type: 'image/png',
-                          user_id: session.user_id
-                 }
+                          user_id: session.user_id }
     let(:file_path) { Rails.root.join('tmp', 'pictures', 'test.png') }
 
     context 'when file_name is blank' do

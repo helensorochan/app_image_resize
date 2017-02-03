@@ -11,20 +11,20 @@ RSpec.describe Api::V1::Packets::Base do
 
   describe '.authenticate_user!' do
     context 'when action requires session and session not found' do
-      let(:params){ {version: allowed_version,
-                     device: '1234',
-                     type: 'users',
-                     version: allowed_version,
-                     action: 'logout'} }
+      let(:params){ { version: allowed_version,
+                      device: '1234',
+                      type: 'users',
+                      version: allowed_version,
+                      action: 'logout' } }
       it{ expect{subject.authenticate_user!}.to raise_error(I18n.t('request_errors.3')) }
     end
 
     context 'when action requires session and data found' do
-      let(:params){ {version: allowed_version,
-                     device: '12345',
-                     type: 'users',
-                     session: session.value,
-                     action: 'logout'} }
+      let(:params){ { version: allowed_version,
+                      device: '12345',
+                      type: 'users',
+                      session: session.value,
+                      action: 'logout' } }
       before(:each) { subject.authenticate_user! }
       it{ expect(subject.user.id).to eq(user.id) }
       it{ expect(subject.session.value).to eq(session.value) }

@@ -9,22 +9,22 @@ RSpec.describe Api::V1::Packets::Users do
 
   describe '.login' do
     context 'when wrong user login' do
-      let(:params){ {version: allowed_version,
-                     login: 'test',
-                     password: 'test',
-                     device: '12345',
-                     type: 'users',
-                     action: 'login'} }
+      let(:params){ { version: allowed_version,
+                      login: 'test',
+                      password: 'test',
+                      device: '12345',
+                      type: 'users',
+                      action: 'login' } }
       it{ expect{subject.login[:error]}.to raise_error(I18n.t('request_errors.8')) }
     end
 
     context 'when wrong user password' do
-      let(:params){ {version: allowed_version,
-                     login: 'my_login',
-                     password: 'test',
-                     device: '12345',
-                     type: 'users',
-                     action: 'login'} }
+      let(:params){ { version: allowed_version,
+                      login: 'my_login',
+                      password: 'test',
+                      device: '12345',
+                      type: 'users',
+                      action: 'login' } }
       it{ expect{subject.login[:error]}.to raise_error(I18n.t('request_errors.9')) }
     end
 
@@ -33,17 +33,17 @@ RSpec.describe Api::V1::Packets::Users do
                       login: user.login,
                       password: user.password,
                       type: 'users',
-                      action: 'login'} }
+                      action: 'login' } }
       it{ expect{subject.login[:error]}.to raise_error(I18n.t('request_errors.5')) }
     end
 
     context 'when correct data' do
-      let(:params){ {version: allowed_version,
-                     login: user.login,
-                     password: user.password,
-                     device: '6789',
-                     type: 'users',
-                     action: 'login'} }
+      let(:params){ { version: allowed_version,
+                      login: user.login,
+                      password: user.password,
+                      device: '6789',
+                      type: 'users',
+                      action: 'login' } }
       it 'then response' do
         result = subject.login
         session = Session.where(user_id: user.id, app_version: allowed_version, device: '6789').last
@@ -54,11 +54,11 @@ RSpec.describe Api::V1::Packets::Users do
 
   describe '.logout' do
     let(:session){ create(:session, user: user) }
-    let(:params){ {version: session.app_version,
-                   device: session.device,
-                   session: session.value,
-                   type: 'users',
-                   action: 'logout'} }
+    let(:params){ { version: session.app_version,
+                    device: session.device,
+                    session: session.value,
+                    type: 'users',
+                    action: 'logout' } }
 
     context 'when session was checked' do
       before(:each){ subject.session = session }
