@@ -62,6 +62,7 @@ For different devices and versions user gets different sessions on login.
 * password: String, mandatory
 * version: Integer, mandatory
 * device: Integer, mandatory
+
 ###Response
 ```ruby
 { session: 'session', status: true }
@@ -80,6 +81,7 @@ For different devices and versions user gets different sessions on login.
 * version: Integer, mandatory
 * version: Integer, mandatory
 * device: Integer, mandatory
+
 ###Response
 ```ruby
 { status: true }
@@ -115,6 +117,7 @@ For different devices and versions user gets different sessions on login.
 * file: String, mandatory
 * width: Integer, mandatory
 * height: Integer, mandatory
+
 ###Response
 ```ruby
 { picture: { path: 'path', width: '100', height: '100', file_name: 'timestamp_1.png' }, status: true }
@@ -143,6 +146,7 @@ For different devices and versions user gets different sessions on login.
 * file_name: String, mandatory
 * width: Integer, mandatory
 * height: Integer, mandatory
+
 ###Response
 ```ruby
 { picture: { path: 'path', width: '200', height: '200', file_name: 'timestamp_1.png' }, status: true }
@@ -165,6 +169,7 @@ For different devices and versions user gets different sessions on login.
 * session: String, mandatory
 * version: Integer, mandatory
 * device: Integer, mandatory
+
 ###Response
 ```ruby
 [{ picture: { path: 'path1', width: '100', height: '100', file_name: 'timestamp_1.png' }, status: true },
