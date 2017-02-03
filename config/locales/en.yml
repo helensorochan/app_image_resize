@@ -9,3 +9,10 @@ en:
     '7': Unknown action
     '8': Wrong login
     '9': Wrong password
+    '10': Unknown file content type
+    '11': Missing file name
+    '12': Missing file content
+    '13': Missing resize parameters
+    '14': Wrong attempt to attach image
+    '15': Picture not found
+    '16': Wrong attempt to resize image

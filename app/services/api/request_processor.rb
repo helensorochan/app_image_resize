@@ -1,6 +1,6 @@
 class Api::RequestProcessor
 
-  PROCESSOR_TYPES = %w(attachments users)
+  PROCESSOR_TYPES = %w(pictures users)
 
   def initialize(params)
     @version = params[:version]
